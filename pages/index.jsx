@@ -1,5 +1,5 @@
 import React from 'react';
-import ContainerHomeDefault from '~/components/layouts/ContainerHomeDefault';
+import ContainerHomeClassic from '~/components/layouts/ContainerHomeClassic';
 import Subscribe from '~/components/shared/sections/Subscribe';
 import HomeDefaultCollection from '~/components/partials/homepages/home-default/HomeDefaultCollection';
 import InstagramImages from '~/components/shared/sections/InstagramImages';
@@ -8,20 +8,29 @@ import HomeDefaultDealOfDay from '~/components/partials/homepages/home-default/H
 import HomeDefaultNewArrival from '~/components/partials/homepages/home-default/HomeDefaultNewArrival';
 import HomeDefaultBanner from '~/components/partials/homepages/home-default/HomeDefaultBanner';
 import HomeDefaultTopSellers from '~/components/partials/homepages/home-default/HomeDefaultTopSellers';
-
+import HomeClassicBanners from '~/components/partials/homepages/home-classic/HomeClassicBanners';
+import HomeClassicCategories from '~/components/partials/homepages/home-classic/HomeClassicCategories';
+import HomeClassicProducts from '~/components/partials/homepages/home-classic/HomeClassicProducts';
+import HomeClassicPromotions from '~/components/partials/homepages/home-classic/HomeClassicPromotions';
+import SiteFeatures from '~/components/shared/sections/SiteFeatures';
 const HomeDefaultPage = () => {
-    return (
-        <ContainerHomeDefault title="Minimalist eCommerce React Template">
-            <HomeDefaultBanner />
-            <HomeDefaultCollection />
-            <HomeDefaultTopSellers collectionSlug="home-default-top-seller" />
-            <HomeDefaultNewArrival collectionSlug="new-arrival" />
-            <HomeDefaultDealOfDay />
-            <HomeBlog />
-            <Subscribe />
-            <InstagramImages />
-        </ContainerHomeDefault>
-    );
+  return (
+    <ContainerHomeClassic title="Minimalist eCommerce React Template">
+      {/* <HomeDefaultBanner />
+      <HomeDefaultCollection />
+      <HomeDefaultTopSellers collectionSlug="home-default-top-seller" />
+      <HomeDefaultNewArrival collectionSlug="new-arrival" />
+      <HomeDefaultDealOfDay /> */}
+      <HomeClassicBanners />
+      <SiteFeatures />
+      <HomeClassicCategories />
+      <HomeClassicProducts />
+      <HomeClassicPromotions />
+      <HomeBlog />
+      <Subscribe />
+      <InstagramImages />
+    </ContainerHomeClassic>
+  );
 };
 
 export default HomeDefaultPage;
