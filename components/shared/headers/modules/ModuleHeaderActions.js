@@ -45,8 +45,8 @@ const ModuleHeaderActions = ({ cart }) => {
           <span>{cartTotal}</span>
         </a>
       </Link>
-      <Link href="">
-        <a className="header__user">
+      <Link href="https://www.instagram.com/pilesapparel/">
+        <a target="_blank" className="header__user">
           <i className="fa fa-instagram"></i>
         </a>
       </Link>
