@@ -55,7 +55,6 @@ const HomeClassicCategories = () => {
               />
             </div>
             <div className="ps-block__content">
-              <p>Unique</p>
               <a href="#">Tees</a>
             </div>
           </div>
@@ -68,7 +67,6 @@ const HomeClassicCategories = () => {
               />
             </div>
             <div className="ps-block__content">
-              <p>Special</p>
               <a href="#">Caps</a>
             </div>
           </div>

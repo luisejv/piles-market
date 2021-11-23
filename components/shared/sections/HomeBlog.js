@@ -51,7 +51,7 @@ const HomeBlog = () => {
       <div className="container">
         <div className="ps-section__header">
           <figure>
-            <figcaption>Our Story</figcaption>
+            <figcaption>The History behind the brand</figcaption>
             <p>Our recent articles about fashion ideas & products</p>
           </figure>
           <Link href="/blog">

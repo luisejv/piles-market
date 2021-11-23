@@ -8,7 +8,7 @@ const HomeClassicProducts = () => {
         <div className="container">
           <div className="ps-section__header">
             <figure>
-              <figcaption>Spring Summer 2022 collection</figcaption>
+              <figcaption>Spring Summer 2022 Collection</figcaption>
               {/* <p>Browse the huge variety of our products</p> */}
             </figure>
           </div>

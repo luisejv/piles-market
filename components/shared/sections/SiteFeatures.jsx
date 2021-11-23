@@ -10,7 +10,7 @@ const SiteFeatures = () => {
               <i className="icon-location"></i>
               <figure>
                 <figcaption>Free Ship - Only in Peru</figcaption>
-                <p>Orders over $100</p>
+                <p>Orders over S/.60</p>
               </figure>
             </div>
           </div>
