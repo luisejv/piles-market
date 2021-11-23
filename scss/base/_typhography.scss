@@ -68,10 +68,12 @@
     url('/static/fonts/Cerebri-Sans/CerebriSans-Heavy.svg') format('svg');
 }
 @font-face {
-  font-family: 'Piles';
+  font-family: 'mytype';
   font-style: normal;
   font-weight: 300;
-  src: url('/static/fonts/Piles/Piles.ttf') format('truetype');
+  src: url('/static/fonts/Piles/mytype.ttf') format('truetype'),
+    url('/static/fonts/Piles/mytype.eot?#') format('embedded-opentype'),
+    url('/static/fonts/Piles/mytype.woff') format('woff');
 }
 * {
   font-family: $font-1st;
