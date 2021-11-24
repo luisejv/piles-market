@@ -109,6 +109,14 @@
     display: inline-block;
     vertical-align: top;
     line-height: 30px;
+    font-family: 'mytype';
+    color: #980000;
+    font-size: 50px;
+  }
+  @media (max-width: 425px) {
+    .ps-logo {
+      font-size: 30px;
+    }
   }
 
   .header__container {
