@@ -30,16 +30,21 @@ const HomeBlog = () => {
   let postItemsView;
   if (!loading) {
     if (postItems) {
-      postItemsView = postItems.map((item) => (
-        <div className=" col-lg-4 col-md-6 col-sm-12 col-12" key={item.id}>
-          <ArticleGrid post={item} />
+      postItemsView = (
+        // postItems.map((item) => (
+        <div
+          className=" col-lg-4 col-md-6 col-sm-12 col-12"
+          key={postItems[0].id}
+        >
+          <ArticleGrid post={postItems[0]} />
         </div>
-      ));
+      );
+      // ));
     } else {
       postItemsView = <p>No post found.</p>;
     }
   } else {
-    postItemsView = generateTempArray(8).map((item) => (
+    postItemsView = generateTempArray(1).map((item) => (
       <div className=" col-lg-4 col-md-6 col-sm-12 col-12" key={item}>
         <SkeletonPostGrid />
       </div>
@@ -52,14 +57,11 @@ const HomeBlog = () => {
         <div className="ps-section__header">
           <figure>
             <figcaption>The History behind the brand</figcaption>
-            <p>Our recent articles about fashion ideas & products</p>
+            <p>The history behind the brand</p>
           </figure>
-          <Link href="/blog">
-            <a className="ps-link--under">See all news</a>
-          </Link>
         </div>
         <div className="ps-section__content">
-          <div className="row">{postItemsView}</div>
+          <div className="row d-flex">{postItemsView}</div>
         </div>
       </div>
     </div>

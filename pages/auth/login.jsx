@@ -40,7 +40,7 @@ const LoginPage = () => {
                   <input
                     className="form-control"
                     type="text"
-                    placeholder="Username"
+                    placeholder="Name"
                   />
                 </div>
                 <div className="form-group">
@@ -69,22 +69,22 @@ const LoginPage = () => {
                 <p>
                   <span className="mb-10">Connect with</span>
                 </p>
-                <ul className="ps-list--social">
-                  <li>
+                <ul className="ps-list--social d-flex justify-content-center">
+                  {/* <li>
                     <a className="facebook" href="#">
                       <i className="fa fa-facebook"></i>
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a className="google-plus" href="#">
                       <i className="fa fa-google-plus"></i>
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a className="twitter" href="#">
                       <i className="fa fa-twitter"></i>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </form>

@@ -64,6 +64,13 @@ const ModuleShopItems = ({ collectionSlug, columns = 4, pageSize = 8 }) => {
     handleSetColumns();
   }, [columns, collectionSlug, pageSize]);
 
+  const getItems = async () => {
+    let response = await fetch('http://localhost:3003/api/item');
+    console.log(response);
+  };
+  useEffect(() => {
+    // getItems();
+  }, []);
   // Views
   let productItemsView;
 

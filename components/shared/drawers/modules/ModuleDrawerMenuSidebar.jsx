@@ -10,7 +10,13 @@ const ModuleDrawerMenuSidebar = () => {
       </div>
       <figure className="ps-navigation__bottom">
         <figcaption>Contact Us</figcaption>
-        <p>support.center@unero.co (0091) 8547 632521</p>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="mailto:pilesapparel@gmail.com"
+        >
+          pilesapparel@gmail.com
+        </a>
       </figure>
     </section>
   );

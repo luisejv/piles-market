@@ -4,22 +4,22 @@ const ListSocial = ({ more }) => {
   if (more) {
     return (
       <ul className="ps-list--social">
-        <li>
+        {/* <li>
           <a href="#">
             <i className="fa fa-twitter"></i>
           </a>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <a href="#">
             <i className="fa fa-facebook"></i>
           </a>
-        </li>
+        </li> */}
         <li>
           <a href="#">
             <i className="fa fa-google-plus"></i>
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="#">
             <i className="fa fa-instagram"></i>
           </a>
@@ -28,27 +28,27 @@ const ListSocial = ({ more }) => {
           <a href="#">
             <i className="fa fa-youtube-play"></i>
           </a>
-        </li>
+        </li> */}
       </ul>
     );
   } else {
     return (
       <ul className="ps-list--social">
-        <li>
+        {/* <li>
           <a className="facebook" href="#">
             <i className="fa fa-facebook"></i>
           </a>
-        </li>
+        </li> */}
         <li>
           <a className="google-plus" href="#">
             <i className="fa fa-google-plus"></i>
           </a>
         </li>
-        <li>
+        {/* <li>
           <a className="twitter" href="#">
             <i className="fa fa-twitter"></i>
           </a>
-        </li>
+        </li> */}
       </ul>
     );
   }

@@ -30,22 +30,22 @@ const ContactUsPage = () => {
               </div>
               <div className="ps-section__right">
                 <ul className="ps-list--social">
-                  <li>
+                  {/* <li>
                     <a href="#">
                       <i className="fa fa-facebook"></i>
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a href="#">
                       <i className="fa fa-twitter"></i>
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a href="#">
                       <i className="fa fa-google-plus"></i>
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="#">
                       <i className="fa fa-linkedin"></i>
                     </a>
@@ -54,7 +54,7 @@ const ContactUsPage = () => {
                     <a href="#">
                       <i className="fa fa-instagram"></i>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
                 <figure>
                   <figcaption>Our Office</figcaption>

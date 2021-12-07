@@ -54,7 +54,7 @@ const FooterBoxed = () => {
               </ul>
               {/* <ListSocial more={true} /> */}
               <p className="ps-footer__copyright">
-                Copyright Supro 2021. All Rights Reserved.
+                Copyright Piles. All Rights Reserved
               </p>
             </div>
           </div>

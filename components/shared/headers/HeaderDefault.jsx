@@ -67,22 +67,22 @@ const HeaderDefault = ({ grid, fullwidth }) => {
             </div>
             <div className="header__feature">
               <ul className="ps-list--social">
-                <li>
+                {/* <li>
                   <a href="#">
                     <i className="fa fa-facebook"></i>
                   </a>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <a href="#">
                     <i className="fa fa-twitter"></i>
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#">
                     <i className="fa fa-google"></i>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#">
                     <i className="fa fa-youtube"></i>
                   </a>
@@ -91,7 +91,7 @@ const HeaderDefault = ({ grid, fullwidth }) => {
                   <a href="#">
                     <i className="fa fa-instagram"></i>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </figure>

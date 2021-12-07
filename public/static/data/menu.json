@@ -25,10 +25,6 @@
         {
           "text": "My Account",
           "url": "/auth/login"
-        },
-        {
-          "text": "Order Tracking",
-          "url": "/pages/order-tracking"
         }
       ]
     },
