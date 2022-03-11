@@ -1,7 +1,7 @@
-import React from 'react';
-import ModuleEcomerceTableCartItems from '~/components/partials/ecomerce/modules/ModuleEcomerceTableCartItems';
-import Link from 'next/link';
-import ModuleEcomerceSummary from '~/components/partials/ecomerce/modules/ModuleEcomerceSummary';
+import React from "react";
+import ModuleEcomerceTableCartItems from "~/components/partials/ecomerce/modules/ModuleEcomerceTableCartItems";
+import Link from "next/link";
+import ModuleEcomerceSummary from "~/components/partials/ecomerce/modules/ModuleEcomerceSummary";
 
 const EcomerceShoppingCart = () => {
   return (
@@ -10,14 +10,12 @@ const EcomerceShoppingCart = () => {
 
       <div className="ps-section__content">
         {/* <div className="ps-section__actions">
-          {/* <figure>
-                        <Link href="/shop">
-                            <a className="ps-btn ps-btn--outline">
-                                Continue shopping
-                            </a>
-                        </Link>
-                    </figure> */}
-        {/* <div className="form-group">
+          <figure>
+            <Link href="/shop">
+              <a className="ps-btn ps-btn--outline">Continue shopping</a>
+            </Link>
+          </figure>
+          <div className="form-group">
             <label>Discount Code</label>
             <div className="form-group__content">
               <input
@@ -27,7 +25,7 @@ const EcomerceShoppingCart = () => {
               />
               <a href="#">Apply</a>
             </div>
-          </div> 
+          </div>
         </div> */}
         <ModuleEcomerceSummary />
       </div>

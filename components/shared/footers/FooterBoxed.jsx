@@ -1,6 +1,6 @@
-import React from 'react';
-import ListSocial from '~/components/elements/lists/ListSocial';
-import Logo from '~/components/elements/basic/Logo';
+import React from "react";
+import ListSocial from "~/components/elements/lists/ListSocial";
+import Logo from "~/components/elements/basic/Logo";
 
 const FooterBoxed = () => {
   return (
@@ -24,7 +24,7 @@ const FooterBoxed = () => {
                 <div className="col-12 ">
                   <figure>
                     <figcaption>24/7 hotline:</figcaption>
-                    <p>(+99) 052 128 2399</p>
+                    <p>(+51) 940 067 367</p>
                   </figure>
                 </div>
               </div>
@@ -54,7 +54,7 @@ const FooterBoxed = () => {
               </ul>
               {/* <ListSocial more={true} /> */}
               <p className="ps-footer__copyright">
-                Copyright Piles. All Rights Reserved
+                Copyright Piles 2022. All Rights Reserved
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import ModuleShopItems from '~/components/partials/shop/modules/ModuleShopItems';
+import React from "react";
+import ModuleShopItems from "~/components/partials/shop/modules/ModuleShopItems";
 
 const HomeClassicProducts = () => {
   return (

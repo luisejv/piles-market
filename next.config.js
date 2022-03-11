@@ -6,14 +6,14 @@
 * Updated at: 2020-12-16T16:32:04+07:00
 
 * */
-const withPlugins = require('next-compose-plugins');
-const withImages = require('next-images');
+const withPlugins = require("next-compose-plugins");
+const withImages = require("next-images");
 
 const nextSettings = {
-    env: {
-        title: 'Supro',
-        titleDescription: 'Minimalist eCommerce React Template',
-    },
+  env: {
+    title: "Piles",
+    titleDescription: "Tendencias en prendas apparel",
+  },
 };
 
 module.exports = nextSettings;

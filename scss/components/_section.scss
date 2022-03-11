@@ -6,6 +6,7 @@
       font-size: 24px;
       color: $color-heading;
       line-height: 1.2em;
+      font-family: "mytype";
     }
 
     p {
@@ -135,7 +136,7 @@
       letter-spacing: 0.05em;
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 100%;
         left: 0;
@@ -687,7 +688,7 @@
       }
 
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 100%;
         right: 0;
@@ -885,7 +886,7 @@
     margin-bottom: 50px;
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       top: 100%;
       left: 0;
@@ -919,7 +920,7 @@
       padding-bottom: 30px;
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 100%;
         left: 0;
@@ -1432,7 +1433,7 @@
     }
   }
 
-  @include media('<sm') {
+  @include media("<sm") {
     .ps-block--collection {
       padding-top: 20px;
 
@@ -1945,7 +1946,7 @@
       padding-left: 85px;
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 10px;
         left: 0;
@@ -1995,8 +1996,8 @@
     position: relative;
 
     &:before {
-      content: '\e7e5';
-      font-family: 'Linearicons';
+      content: "\e7e5";
+      font-family: "Linearicons";
       position: absolute;
       top: -20px;
       left: -15px;
@@ -2021,7 +2022,7 @@
     padding-bottom: 30px;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 100%;
       left: 0;
@@ -2171,7 +2172,7 @@
     max-width: 460px;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 100%;
       left: 0;
@@ -2735,7 +2736,7 @@
       position: relative;
 
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 100%;
         left: 50%;
