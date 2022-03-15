@@ -51,6 +51,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
                 type="text"
                 value={item.quantity}
                 placeholder={item.quantity}
+                onChange={(e) => {}}
               />
             </div>
           </td>

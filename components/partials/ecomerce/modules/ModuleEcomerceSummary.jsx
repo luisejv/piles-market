@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { getCartItemsHelper } from '~/utilities/ecomerce-helpers';
-import Link from 'next/link';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { getCartItemsHelper } from "~/utilities/ecomerce-helpers";
+import Link from "next/link";
+import { connect } from "react-redux";
 
 const ModuleEcomerceSummary = ({ cart }) => {
+  console.log(cart);
   const [cartItems, setCartItems] = useState([]);
 
   async function getProductByCardItems(cart) {
@@ -19,6 +20,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
 
   let cartItemsViews;
   if (cartItems) {
+    console.log(cartItems);
     cartItemsViews = cartItems.map((item) => (
       <Link href="/">
         <a>
@@ -31,11 +33,16 @@ const ModuleEcomerceSummary = ({ cart }) => {
       </Link>
     ));
   }
+  const total = cartItems
+    .reduce((a, b) => {
+      return a + b.price * b.quantity;
+    }, 0)
+    .toFixed(2);
   return (
     <div className="ps-block--checkout-total">
       <div className="ps-block__top">
         <h4>
-          Subtotal <span>$199.70</span>
+          Subtotal <span>${total}</span>
         </h4>
         <div className="ps-block__shipping">
           <h5>Shipping</h5>
@@ -86,7 +93,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
         </div> */}
         <div className="ps-block__total">
           <h3>
-            Total<span>$199.70</span>
+            Total<span>${total}</span>
           </h3>
         </div>
       </div>

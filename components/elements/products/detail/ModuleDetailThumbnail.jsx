@@ -5,6 +5,51 @@ import PrevArrow from "~/components/elements/carousel/PrevArrow";
 import "react-image-lightbox/style.css";
 import StrapiProductImage from "~/components/elements/media/StrapiProductImage";
 import Lightbox from "react-image-lightbox";
+
+const variantSetting = {
+  slidesToShow: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        dots: false,
+        arrows: false,
+        vertical: false,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 4,
+        dots: false,
+        arrows: false,
+        vertical: false,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 4,
+        dots: false,
+        arrows: false,
+        vertical: false,
+        infinite: false,
+      },
+    },
+  ],
+};
+const gallerySetting = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+};
 class ModuleDetailThumbnail extends Component {
   constructor(props) {
     super(props);
@@ -34,50 +79,6 @@ class ModuleDetailThumbnail extends Component {
   render() {
     const { product, variant } = this.props;
     const { photoIndex, isOpen } = this.state;
-    const variantSetting = {
-      slidesToShow: 4,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 4,
-            dots: false,
-            arrows: false,
-            vertical: false,
-            infinite: false,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 4,
-            dots: false,
-            arrows: false,
-            vertical: false,
-            infinite: false,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 4,
-            dots: false,
-            arrows: false,
-            vertical: false,
-            infinite: false,
-          },
-        },
-      ],
-    };
-    const gallerySetting = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
-    };
 
     // Views
     let slideItems,
