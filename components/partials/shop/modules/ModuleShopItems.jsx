@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import ProductRepository from '~/repositories/ProductRepository';
-import Product from '~/components/elements/products/Product';
-import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
-import CollectionRepository from '~/repositories/CollectionRepository';
-import { generateTempArray } from '~/utilities/common-helpers';
+import React, { useEffect, useState } from "react";
+import ProductRepository from "~/repositories/ProductRepository";
+import Product from "~/components/elements/products/Product";
+import SkeletonProduct from "~/components/elements/skeletons/SkeletonProduct";
+import CollectionRepository from "~/repositories/CollectionRepository";
+import { generateTempArray } from "~/utilities/common-helpers";
 
 const ModuleShopItems = ({ collectionSlug, columns = 4, pageSize = 8 }) => {
   const [loading, setLoading] = useState(true);
   const [productItems, setProductItems] = useState(null);
   const [classes, setClasses] = useState(
-    'col-xl-4 col-lg-4 col-md-3 col-sm-6 col-6'
+    "col-xl-4 col-lg-4 col-md-3 col-sm-6 col-6"
   );
 
   async function getProduct() {
@@ -42,20 +42,20 @@ const ModuleShopItems = ({ collectionSlug, columns = 4, pageSize = 8 }) => {
   function handleSetColumns() {
     switch (columns) {
       case 2:
-        setClasses('col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6');
+        setClasses("col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6");
         return 3;
         break;
       case 4:
-        setClasses('col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6');
+        setClasses("col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6");
         return 4;
         break;
       case 6:
-        setClasses('col-xl-2 col-lg-4 col-md-6 col-sm-6 col-6');
+        setClasses("col-xl-2 col-lg-4 col-md-6 col-sm-6 col-6");
         return 6;
         break;
 
       default:
-        setClasses('col-xl-4 col-lg-4 col-md-3 col-sm-6 col-6');
+        setClasses("col-xl-4 col-lg-4 col-md-3 col-sm-6 col-6");
     }
   }
 
@@ -64,21 +64,15 @@ const ModuleShopItems = ({ collectionSlug, columns = 4, pageSize = 8 }) => {
     handleSetColumns();
   }, [columns, collectionSlug, pageSize]);
 
-  const getItems = async () => {
-    let response = await fetch('http://localhost:3003/api/item');
-    console.log(response);
-  };
-  useEffect(() => {
-    // getItems();
-  }, []);
   // Views
   let productItemsView;
 
   if (!loading && productItems) {
     if (productItems.length > 0) {
+      console.log(productItems);
       const items = productItems.map((item) => {
         return (
-          <div className={classes} key={item.id}>
+          <div className={classes} key={item._id}>
             <Product product={item} />
           </div>
         );

@@ -1,19 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Link from 'next/link';
-import Rating from '~/components/elements/Rating';
+import React from "react";
+import { connect } from "react-redux";
+import Link from "next/link";
+import Rating from "~/components/elements/Rating";
 import {
   SPGetProductBadges,
   SPGetProductPrice,
   SPGetProductThumbailImages,
-} from '~/utilities/product-helper';
-import ModuleProductActions from '~/components/elements/products/modules/ModuleProductActions';
+} from "~/utilities/product-helper";
+import ModuleProductActions from "~/components/elements/products/modules/ModuleProductActions";
 
 const Product = ({ product }) => {
   // Views
-  console.log(product);
   const priceView = SPGetProductPrice(product);
-  const thumbnailImages = SPGetProductThumbailImages(product, 'small');
+  const thumbnailImages = SPGetProductThumbailImages(product, "small");
 
   /*const badgeView = WPProductBadgeView(product);*/
   const badges = SPGetProductBadges(product);
@@ -22,15 +21,15 @@ const Product = ({ product }) => {
     <div className="ps-product">
       <div className="ps-product__thumbnail">
         {thumbnailImages}
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/product/${product._id}`}>
           <a className="ps-product__overlay"></a>
         </Link>
         {badges}
         <ModuleProductActions product={product} />
       </div>
       <div className="ps-product__content">
-        <Link href={`/product/${product.id}`}>
-          <a className="ps-product__title">{product.title}</a>
+        <Link href={`/product/${product._id}`}>
+          <a className="ps-product__title">{product.name}</a>
         </Link>
         {/* <div className="ps-product__rating">
                     <Rating />

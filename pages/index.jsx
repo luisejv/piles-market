@@ -25,8 +25,8 @@ const HomeDefaultPage = () => {
       <SiteFeatures />
       <HomeClassicCategories />
       <HomeClassicProducts />
-      <HomeClassicPromotions />
-      <HomeBlog />
+      {/* <HomeClassicPromotions /> */}
+      {/* <HomeBlog /> */}
       <Subscribe />
       <InstagramImages />
     </ContainerHomeClassic>

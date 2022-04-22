@@ -40,9 +40,9 @@ const ProductDetailPage = ({ query }) => {
   useEffect(() => {
     const { id } = query;
 
-    if (isNaN(id)) {
-      Router.push("/page/page-404");
-    }
+    // if (isNaN(id)) {
+    //   Router.push("/page/page-404");
+    // }
 
     if (query) {
       getProduct(id);
@@ -66,7 +66,7 @@ const ProductDetailPage = ({ query }) => {
       url: "/shop",
     },
     {
-      text: product ? product.title : "loading...",
+      text: product ? product.name : "loading...",
     },
   ];
 

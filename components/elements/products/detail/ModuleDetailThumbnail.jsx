@@ -79,23 +79,28 @@ class ModuleDetailThumbnail extends Component {
   render() {
     const { product, variant } = this.props;
     const { photoIndex, isOpen } = this.state;
-
+    console.log(product);
+    const { photoUrl } = product;
     // Views
     let slideItems,
       gallerySlideItems,
       lightboxImages = [],
       productImages;
     if (product) {
-      if (variant) {
-        let tempImgs = product.images;
-        tempImgs[0] = variant.image;
-        productImages = tempImgs;
+      if (!photoUrl) {
+        if (variant) {
+          let tempImgs = product.images;
+          tempImgs[0] = variant.image;
+          productImages = tempImgs;
+        } else {
+          productImages = product.images;
+        }
+        product.images.forEach((item) => {
+          lightboxImages.push(item.url);
+        });
       } else {
-        productImages = product.images;
+        productImages = [photoUrl];
       }
-      product.images.map((item) => {
-        lightboxImages.push(item.url);
-      });
       if (productImages) {
         slideItems = productImages.map((item) => (
           <div className="item" key={item.id}>

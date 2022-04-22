@@ -4,15 +4,15 @@
  * Developed: diaryforlife
  * */
 
-import React from 'react';
-import { baseUrlProduct } from '~/repositories/Repository';
-import LazyLoad from 'react-lazyload';
+import React from "react";
+import { baseUrlProduct } from "~/repositories/Repository";
+import LazyLoad from "react-lazyload";
 
 export function formatCurrency(num) {
   if (num !== undefined) {
     return parseFloat(num)
       .toString()
-      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   } else {
   }
 }
@@ -22,25 +22,25 @@ export function SPGetProductThumbailImage(product, size) {
 
   const { thumbnail } = product;
   if (thumbnail) {
-    if (size && size === 'large') {
+    if (size && size === "large") {
       if (thumbnail.formats.large) {
         image = thumbnail.formats.large.url;
       } else {
         image = product.thumbnail.url;
       }
-    } else if (size && size === 'medium') {
+    } else if (size && size === "medium") {
       if (thumbnail.formats.medium) {
         image = thumbnail.formats.medium.url;
       } else {
         image = product.thumbnail.url;
       }
-    } else if (size && size === 'thumbnail') {
+    } else if (size && size === "thumbnail") {
       if (thumbnail.formats.thumbnail) {
         image = thumbnail.formats.thumbnail.url;
       } else {
         image = product.thumbnail.url;
       }
-    } else if (size && size === 'small') {
+    } else if (size && size === "small") {
       if (thumbnail.formats.small !== undefined) {
         image = thumbnail.formats.small.url;
       } else {
@@ -72,27 +72,30 @@ export function SPGetProductThumbailImages(product, size) {
   let imageFront,
     imageBack = null,
     view;
-  const { thumbnail, thumbnail_back } = product;
+  const { thumbnail, thumbnail_back, photoUrl } = product;
+  if (photoUrl) {
+    return <img src={photoUrl} alt={product.name} />;
+  }
   if (thumbnail_back) {
-    if (size && size === 'large') {
+    if (size && size === "large") {
       if (thumbnail_back.formats.large) {
         imageBack = thumbnail_back.formats.large.url;
       } else {
         imageBack = thumbnail_back.url;
       }
-    } else if (size && size === 'medium') {
+    } else if (size && size === "medium") {
       if (thumbnail_back.formats.medium) {
         imageBack = thumbnail_back.formats.medium.url;
       } else {
         imageBack = thumbnail_back.url;
       }
-    } else if (size && size === 'thumbnail') {
+    } else if (size && size === "thumbnail") {
       if (thumbnail_back.formats.thumbnail) {
         imageBack = thumbnail_back.formats.thumbnail.url;
       } else {
         imageBack = thumbnail_back.url;
       }
-    } else if (size && size === 'small') {
+    } else if (size && size === "small") {
       if (thumbnail_back.formats.small) {
         imageBack = thumbnail_back.formats.small.url;
       } else {
@@ -103,25 +106,25 @@ export function SPGetProductThumbailImages(product, size) {
     }
   }
   if (thumbnail) {
-    if (size && size === 'large') {
+    if (size && size === "large") {
       if (thumbnail.formats.large) {
         imageFront = thumbnail.formats.large.url;
       } else {
         imageFront = product.thumbnail.url;
       }
-    } else if (size && size === 'medium') {
+    } else if (size && size === "medium") {
       if (thumbnail.formats.medium) {
         imageFront = thumbnail.formats.medium.url;
       } else {
         imageFront = product.thumbnail.url;
       }
-    } else if (size && size === 'thumbnail') {
+    } else if (size && size === "thumbnail") {
       if (thumbnail.formats.thumbnail) {
         imageFront = thumbnail.formats.thumbnail.url;
       } else {
         imageFront = product.thumbnail.url;
       }
-    } else if (size && size === 'small') {
+    } else if (size && size === "small") {
       if (thumbnail.formats.small !== undefined) {
         imageFront = thumbnail.formats.small.url;
       } else {
@@ -190,18 +193,18 @@ export function SPGetProductBadges(product) {
   }
 
   if (product.sale_price) {
-    items.push('sale');
+    items.push("sale");
   }
   if (items.length > 0) {
     const badgeItems = items.map((item) => {
-      if (item === 'sale') {
+      if (item === "sale") {
         return (
           <span className="ps-badge ps-badge--sale" key={item}>
             Sale
           </span>
         );
       }
-      if (item === 'hot') {
+      if (item === "hot") {
         return (
           <span className="ps-badge ps-badge--hot" key={item}>
             Hot

@@ -2,14 +2,24 @@ import React, { useEffect, useState } from "react";
 import { getCartItemsHelper } from "~/utilities/ecomerce-helpers";
 import { connect } from "react-redux";
 import Link from "next/link";
+import { notification } from "antd";
+import PilesAPI from "~/utilities/api";
 
-const ModuleCheckoutSummary = ({ cart }) => {
+const ModuleCheckoutSummary = ({ cart, email }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [total, setTotal] = useState(0);
 
   async function getProductByCardItems(cart) {
     const shoppingCart = await getCartItemsHelper(cart);
     if (shoppingCart) {
       setCartItems(shoppingCart.items);
+      setTotal(
+        shoppingCart.items
+          .reduce((a, b) => {
+            return a + b.price * b.quantity;
+          }, 0)
+          .toFixed(2)
+      );
     }
   }
 
@@ -17,10 +27,35 @@ const ModuleCheckoutSummary = ({ cart }) => {
     getProductByCardItems(cart);
   }, [cart]);
 
-  const postBuyOrder = () => {
-    const body = {
-      //   email:
-    };
+  const postBuyOrder = async () => {
+    try {
+      if (email && email.length > 0) {
+        const body = {
+          // useId:
+          email: email,
+          items: cartItems.map((item) => {
+            return {
+              itemId: item.id,
+              quantity: item.quantity,
+            };
+          }),
+          currency: "PEN",
+          date: new Date(),
+          total: total,
+        };
+        console.log(body);
+        const response = await PilesAPI.post("/buyOrder", body);
+        console.log(response);
+      } else {
+        notification["warning"]({
+          message: "Warning",
+          description: "Can't create this order without your email.",
+          duration: 1.5,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   let cartItemsViews;
@@ -37,11 +72,6 @@ const ModuleCheckoutSummary = ({ cart }) => {
       </Link>
     ));
   }
-  const total = cartItems
-    .reduce((a, b) => {
-      return a + b.price * b.quantity;
-    }, 0)
-    .toFixed(2);
 
   return (
     <div className="ps-block--checkout-order">
@@ -99,6 +129,7 @@ const ModuleCheckoutSummary = ({ cart }) => {
         {/* <Link href="/shop/checkout-success"> */}
         {/* </Link> */}
         <button
+          type="button"
           className="ps-btn ps-btn--fullwidth ps-btn--black"
           onClick={postBuyOrder}
         >
