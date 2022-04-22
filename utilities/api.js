@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const PilesAPI = axios.create({
+export default PilesAPI = axios.create({
   baseURL: "https://api.pilesapparel.com/api",
 });
