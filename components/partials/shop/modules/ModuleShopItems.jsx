@@ -23,6 +23,7 @@ const ModuleShopItems = ({ collectionSlug, columns = 4, pageSize = 8 }) => {
         _limit: pageSize,
       };
       SPProducts = await ProductRepository.getProducts(queries);
+      console.log(SPProducts);
     }
 
     if (SPProducts) {

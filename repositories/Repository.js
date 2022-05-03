@@ -10,7 +10,7 @@ export const customHeaders = {
   Accept: "application/json",
 };
 
-export const baseUrl = `${baseDomain}`;
+export const baseUrl = `${baseUrlProduct}`;
 
 export default axios.create({
   baseUrl,
