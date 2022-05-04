@@ -1,6 +1,40 @@
 #homepage-classic {
   background-color: black;
 
+  header {
+    position: relative;
+    background-color: black;
+    height: 60vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  header > video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  header > .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
+    z-index: 1;
+  }
+
+  header > .container {
+    position: relative;
+    z-index: 2;
+  }
+
   .ps-home-banner {
     .ps-section__container {
       position: relative;

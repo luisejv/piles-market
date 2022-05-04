@@ -47,6 +47,7 @@ class ProductRepository {
   async getProductsById(payload) {
     const reponse = await Repository.get(`${baseUrlProduct}/item/${payload}`)
       .then((response) => {
+        console.log(response);
         return response.data.item;
       })
       .catch((error) => ({ error: JSON.stringify(error) }));

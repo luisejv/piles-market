@@ -166,10 +166,10 @@ export function SPGetProductPrice(product) {
   if (product.sale_price) {
     view = (
       <p className="ps-product__price sale">
-        <span>£</span>
+        <span>S/.</span>
         {formatCurrency(product.price)}
         <del className="ml-1">
-          <span>£</span>
+          <span>S/.</span>
           {formatCurrency(product.sale_price)}
         </del>
       </p>
@@ -177,7 +177,7 @@ export function SPGetProductPrice(product) {
   } else {
     view = (
       <p className="ps-product__price">
-        <span>£</span>
+        <span>S/.</span>
         {formatCurrency(product.price)}
       </p>
     );

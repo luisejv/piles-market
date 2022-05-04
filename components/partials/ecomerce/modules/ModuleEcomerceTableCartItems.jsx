@@ -34,7 +34,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
             <ProductOnCart product={item} />
           </td>
           <td>
-            <strong>£{item.price}</strong>
+            <strong>S/.{item.price}</strong>
           </td>
           <td>
             <div className="form-group--number">
@@ -57,7 +57,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
           </td>
           <td width={150}>
             <p>
-              <strong>£{(item.price * item.quantity).toFixed(2)}</strong>
+              <strong>S/.{(item.price * item.quantity).toFixed(2)}</strong>
             </p>
           </td>
           <td>

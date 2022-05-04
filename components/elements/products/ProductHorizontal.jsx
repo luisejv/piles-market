@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
-import Link from 'next/link';
-import Rating from '~/components/elements/Rating';
-import { addItem } from '~/store/cart/action';
-import { addItemToWishlist } from '~/store/wishlist/action';
+import React, { useState } from "react";
+import { connect, useDispatch } from "react-redux";
+import Link from "next/link";
+import Rating from "~/components/elements/Rating";
+import { addItem } from "~/store/cart/action";
+import { addItemToWishlist } from "~/store/wishlist/action";
 
 import {
   SPGetProductPrice,
   SPGetProductThumbailImages,
-} from '~/utilities/product-helper';
-import ModuleProductActions from '~/components/elements/products/modules/ModuleProductActions';
+} from "~/utilities/product-helper";
+import ModuleProductActions from "~/components/elements/products/modules/ModuleProductActions";
 
 const ProductHorizontal = ({ product }) => {
   // Views
@@ -32,7 +32,7 @@ const ProductHorizontal = ({ product }) => {
             </Link>
 
             <p className="ps-product__price">
-              <span>£</span> {product.price}
+              <span>S/.</span> {product.price}
             </p>
           </figure>
           {/* <div className="ps-product__rating">

@@ -28,7 +28,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
             {item.title}
             <span>x{item.quantity}</span>
           </strong>
-          <small>£{item.price}</small>
+          <small>S/.{item.price}</small>
         </a>
       </Link>
     ));

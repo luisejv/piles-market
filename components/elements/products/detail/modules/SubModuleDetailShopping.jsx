@@ -9,6 +9,17 @@ const SubModuleDetailShopping = ({ product }) => {
 
   return (
     <div className="ps-product__shopping">
+      <div className="ps-product__buynow">
+        <a
+          className="ps-btn ps-btn--black ps-btn--fullwidth"
+          href="#"
+          onClick={(e) =>
+            dispatch(addItem({ id: product.id, quantity: quantity }))
+          }
+        >
+          Buy Now
+        </a>
+      </div>
       <figure>
         <div className="form-group--number">
           <button
@@ -43,17 +54,6 @@ const SubModuleDetailShopping = ({ product }) => {
           <i className="fa fa-heart-o"></i>
         </a>
       </figure>
-      <div className="ps-product__buynow">
-        <a
-          className="ps-btn ps-btn--black ps-btn--fullwidth"
-          href="#"
-          onClick={(e) =>
-            dispatch(addItem({ id: product.id, quantity: quantity }))
-          }
-        >
-          Buy Now
-        </a>
-      </div>
     </div>
   );
 };

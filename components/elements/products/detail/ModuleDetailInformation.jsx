@@ -13,18 +13,21 @@ const ModuleDetailInformation = ({ product }) => {
                     <Rating />
                     <span>1 Review</span>
                 </div> */}
-        <h2 className="ps-product__title">{product.title}</h2>
+        <h2 className="ps-product__title">{product.name}</h2>
         {/* <span className="ps-product__sku">SKU: AB1609456789</span> */}
-        <h4 className="ps-product__price">£{product.price}</h4>
+        <h4 className="ps-product__price">S/.{product.price}</h4>
       </div>
-      {/* <div className="ps-product__desc">
+      <div className="ps-product__desc">
+        {/* <p>{product.description}</p> */}
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore.
+          <strong>ENVIO NACIONAL GRATUITO</strong>
         </p>
-      </div> */}
+        <p>
+          <strong>SIZE: AJUSTABLE</strong>
+        </p>
+      </div>
       <SubModuleDetailShopping product={product} />
-      <SubModuleDetailSpecification />
+      {/* <SubModuleDetailSpecification /> */}
     </div>
   );
 };

@@ -12,6 +12,7 @@ import HomeClassicBanners from "~/components/partials/homepages/home-classic/Hom
 import HomeClassicCategories from "~/components/partials/homepages/home-classic/HomeClassicCategories";
 import HomeClassicProducts from "~/components/partials/homepages/home-classic/HomeClassicProducts";
 import HomeClassicPromotions from "~/components/partials/homepages/home-classic/HomeClassicPromotions";
+import HomeClassicVideo from "~/components/partials/homepages/home-classic/HomeClassicVideo";
 import SiteFeatures from "~/components/shared/sections/SiteFeatures";
 const HomeDefaultPage = () => {
   return (
@@ -23,12 +24,13 @@ const HomeDefaultPage = () => {
       <HomeDefaultDealOfDay /> */}
       <HomeClassicBanners />
       <SiteFeatures />
-      <HomeClassicCategories />
+      {/* <HomeClassicCategories /> */}
+      <HomeClassicVideo />
       <HomeClassicProducts />
       {/* <HomeClassicPromotions /> */}
       {/* <HomeBlog /> */}
       <Subscribe />
-      <InstagramImages />
+      {/* <InstagramImages /> */}
     </ContainerHomeClassic>
   );
 };

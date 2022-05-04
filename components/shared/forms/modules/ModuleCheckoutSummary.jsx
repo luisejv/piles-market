@@ -67,7 +67,7 @@ const ModuleCheckoutSummary = ({ cart, email }) => {
             {item.title}
             <span>x{item.quantity}</span>
           </strong>
-          <small>£{(item.price * item.quantity).toFixed(2)}</small>
+          <small>S/.{(item.price * item.quantity).toFixed(2)}</small>
         </a>
       </Link>
     ));
@@ -86,7 +86,7 @@ const ModuleCheckoutSummary = ({ cart, email }) => {
         <figure>
           <figcaption>
             <strong>Subtotal</strong>
-            <small>£{total}</small>
+            <small>S/.{total}</small>
           </figcaption>
         </figure>
         <figure className="ps-block__shipping">
@@ -95,7 +95,7 @@ const ModuleCheckoutSummary = ({ cart, email }) => {
         </figure>
         <figure className="ps-block__total">
           <figcaption>
-            Total<span>£{total}</span>
+            Total<span>S/.{total}</span>
           </figcaption>
         </figure>
         <figure className="ps-block__payment-methods">

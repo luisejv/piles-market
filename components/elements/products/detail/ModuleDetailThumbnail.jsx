@@ -103,18 +103,31 @@ class ModuleDetailThumbnail extends Component {
       }
       if (productImages) {
         slideItems = productImages.map((item) => (
-          <div className="item" key={item.id}>
-            <StrapiProductImage url={item.url} alt={item.name} />
+          <div className="item" key={item}>
+            <StrapiProductImage url={item} />
           </div>
         ));
 
         gallerySlideItems = productImages.map((item, index) => (
-          <div className="item" key={item.id}>
+          <div className="item" key={item}>
             <a href="#" onClick={(e) => this.handleOpenLightbox(e, index)}>
-              <StrapiProductImage url={item.url} alt={item.name} />
+              <StrapiProductImage url={item} />
             </a>
           </div>
         ));
+        // slideItems = productImages.map((item) => (
+        //   <div className="item" key={item.id}>
+        //     <StrapiProductImage url={item.url} alt={item.name} />
+        //   </div>
+        // ));
+
+        // gallerySlideItems = productImages.map((item, index) => (
+        //   <div className="item" key={item.id}>
+        //     <a href="#" onClick={(e) => this.handleOpenLightbox(e, index)}>
+        //       <StrapiProductImage url={item.url} alt={item.name} />
+        //     </a>
+        //   </div>
+        // ));
       }
     }
 
