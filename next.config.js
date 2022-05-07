@@ -14,6 +14,9 @@ const nextSettings = {
     title: "Piles",
     titleDescription: "Tendencias en prendas apparel",
   },
+  images: {
+    domains: ["https://piles-bucket.s3.amazonaws.com"],
+  },
 };
 
-module.exports = nextSettings;
+module.exports = withImages(nextSettings);
