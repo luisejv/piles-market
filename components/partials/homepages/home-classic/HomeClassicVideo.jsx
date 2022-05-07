@@ -21,10 +21,7 @@ const HomeClassicVideo = () => {
         ref={videoRef}
       ></video>
       <div className="container h-100">
-        <div className="d-flex h-100 flex-column align-items-center justify-content-center text-white">
-          {/* <h1 className="display-3">Naruto Web</h1>
-          <p>Toda la información sobre Naruto Shippuden</p> */}
-        </div>
+        <div className="d-flex h-100 flex-column align-items-center justify-content-center text-white"></div>
       </div>
     </header>
   );

@@ -9,7 +9,7 @@ const tabItems = [
   //   { id: 3, text: "review" },
 ];
 
-const ModuleDetailContent = () => {
+const ModuleDetailContent = ({ product }) => {
   const [currentTab, setCurrentTab] = useState(tabItems[0]);
 
   // Views
@@ -22,7 +22,7 @@ const ModuleDetailContent = () => {
     </li>
   ));
   if (currentTab.id === 1) {
-    tabContentView = <ModuleDetailDescription />;
+    tabContentView = <ModuleDetailDescription product={product} />;
   }
   //   if (currentTab.id === 2) {
   //     tabContentView = <TableProductSize />;

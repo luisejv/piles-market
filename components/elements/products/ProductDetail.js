@@ -10,7 +10,7 @@ const ProductDetail = ({ product }) => {
         <ModuleDetailThumbnail product={product} />
         <ModuleDetailInformation product={product} />
       </div>
-      <ModuleDetailContent />
+      <ModuleDetailContent product={product} />
     </div>
   );
 };

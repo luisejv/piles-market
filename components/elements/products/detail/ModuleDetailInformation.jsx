@@ -23,7 +23,7 @@ const ModuleDetailInformation = ({ product }) => {
           <strong>ENVIO NACIONAL GRATUITO</strong>
         </p>
         <p>
-          <strong>SIZE: AJUSTABLE</strong>
+          <strong>SIZE: {product.size.join("-")}</strong>
         </p>
       </div>
       <SubModuleDetailShopping product={product} />

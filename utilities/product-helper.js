@@ -73,8 +73,25 @@ export function SPGetProductThumbailImages(product, size) {
     imageBack = null,
     view;
   const { thumbnail, thumbnail_back, photoUrl } = product;
-  if (photoUrl) {
-    return <img src={photoUrl} alt={product.name} />;
+  if (photoUrl.length > 0) {
+    return (
+      <div className="ps-product__thumbnail-images">
+        <LazyLoad>
+          <img
+            // className="ps-product__image"
+            src={photoUrl[0]}
+            alt={product.name}
+          />
+        </LazyLoad>
+        {/* <LazyLoad>
+          <img
+            className="ps-product__image-alt"
+            src={`${baseUrlProduct}${imageBack}`}
+            alt=""
+          />
+        </LazyLoad> */}
+      </div>
+    );
   }
   if (thumbnail_back) {
     if (size && size === "large") {

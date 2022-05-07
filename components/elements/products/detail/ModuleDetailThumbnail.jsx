@@ -99,7 +99,7 @@ class ModuleDetailThumbnail extends Component {
           lightboxImages.push(item.url);
         });
       } else {
-        productImages = [photoUrl];
+        productImages = [...photoUrl];
       }
       if (productImages) {
         slideItems = productImages.map((item) => (
