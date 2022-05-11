@@ -1,5 +1,5 @@
-import React from 'react';
-import { baseUrl } from '~/repositories/Repository';
+import React from "react";
+import { baseUrl } from "~/repositories/Repository";
 
 const AboutVideo = () => {
   return (
@@ -8,15 +8,15 @@ const AboutVideo = () => {
         <div
           className="ps-section__header bg--cover"
           style={{
-            backgroundImage: `url('/static/img/pages/about-video.jpg')`,
+            backgroundImage: `url('/static/img/pages/image00001.jpeg')`,
           }}
         >
           <figure>
-            <p>Work hard, have fun</p>
-            <h3>NO DRAMA</h3>
-            <a href="#">
+            {/* <p>Work hard, have fun</p> */}
+            {/* <h3>NO DRAMA</h3> */}
+            {/* <a href="#">
               <img src="img/pages/play-icon.png" alt="" />
-            </a>
+            </a> */}
           </figure>
         </div>
         <div className="ps-section__content">
@@ -59,7 +59,7 @@ const AboutVideo = () => {
             </div>
           </div>
         </div>
-        <div className="ps-section__footer">
+        {/* <div className="ps-section__footer">
           <h4>
             Using technology to inspire and innovate, we aim to make shopping
             seamless, whether online or in store
@@ -80,7 +80,7 @@ const AboutVideo = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

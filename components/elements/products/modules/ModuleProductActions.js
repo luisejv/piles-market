@@ -11,12 +11,12 @@ const ModuleProductActions = ({ product }) => {
 
   const handleAddItemToCart = (e) => {
     e.preventDefault();
-    dispatch(addItem({ id: product.id, quantity: 1 }));
+    dispatch(addItem({ _id: product._id, quantity: 1 }));
   };
 
   const handleAddItemToWishlist = (e) => {
     e.preventDefault();
-    dispatch(addItemToWishlist(product.id));
+    dispatch(addItemToWishlist(product._id));
   };
 
   const handleShowQuickView = (e) => {

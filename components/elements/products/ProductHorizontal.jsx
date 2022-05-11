@@ -20,14 +20,14 @@ const ProductHorizontal = ({ product }) => {
     <div className="ps-product ps-product--horizontal">
       <div className="ps-product__thumbnail">
         {thumbnailImage}
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/product/${product._id}`}>
           <a className="ps-product__overlay"></a>
         </Link>
       </div>
       <div className="ps-product__content">
         <div className="ps-product__header">
           <figure>
-            <Link href={`/product/${product.id}`}>
+            <Link href={`/product/${product._id}`}>
               <a className="ps-product__title">{product.title}</a>
             </Link>
 

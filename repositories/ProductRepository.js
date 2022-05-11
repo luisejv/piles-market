@@ -10,15 +10,15 @@ export async function getTotalRecords() {
 }
 
 export async function getProductsByIds(payload) {
-  const endPoint = `${baseUrlProduct}/products?${payload}`;
-  const reponse = await Repository.get(endPoint)
+  // const endPoint = `${baseUrlProduct}/products?${payload}`;
+  const endPoint = `${baseUrlProduct}/item/get-shopping-cart-items`;
+  const reponse = await Repository.post(endPoint, payload)
     .then((response) => {
       return {
-        items: response.data,
-        totalItems: response.data.length,
+        items: response.data.items,
+        totalItems: response.data.items.length,
       };
     })
-
     .catch((error) => ({ error: JSON.stringify(error) }));
   return reponse;
 }

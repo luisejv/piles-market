@@ -54,7 +54,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
               name="shipping"
             />
             <label htmlFor="shipping-1">
-              Free Shipping <span>over $60.00</span>
+              Free Shipping <span>over S/. 60.00</span>
             </label>
           </div>
           {/* <div className="ps-radio">

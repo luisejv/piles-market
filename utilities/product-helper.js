@@ -20,7 +20,14 @@ export function formatCurrency(num) {
 export function SPGetProductThumbailImage(product, size) {
   let image;
 
-  const { thumbnail } = product;
+  const { thumbnail, photoUrl } = product;
+  if (photoUrl) {
+    return (
+      <LazyLoad>
+        <img className="ps-product__image" src={photoUrl[0]} alt="" />
+      </LazyLoad>
+    );
+  }
   if (thumbnail) {
     if (size && size === "large") {
       if (thumbnail.formats.large) {

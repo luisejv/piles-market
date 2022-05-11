@@ -5,6 +5,7 @@ import { addItemToWishlist } from "~/store/wishlist/action";
 
 const SubModuleDetailShopping = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState("M");
   const dispatch = useDispatch();
 
   return (
@@ -14,11 +15,29 @@ const SubModuleDetailShopping = ({ product }) => {
           className="ps-btn ps-btn--black ps-btn--fullwidth"
           href="#"
           onClick={(e) =>
-            dispatch(addItem({ id: product.id, quantity: quantity }))
+            dispatch(addItem({ id: product._id, quantity: quantity }))
           }
         >
           Buy Now
         </a>
+      </div>
+      <div className="col-sm-12 px-0">
+        <div className="form-group">
+          <label>
+            Size <sup>*</sup>
+          </label>
+          <select
+            className="ps-select form-control"
+            value={size}
+            onChange={(e) => setSize(e.currentTarget.value)}
+          >
+            {product.size.map((_size) => (
+              <option key={_size} value={_size}>
+                {_size}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <figure>
         <div className="form-group--number">
@@ -41,7 +60,9 @@ const SubModuleDetailShopping = ({ product }) => {
           className="ps-btn ps-btn--black"
           href="#"
           onClick={(e) =>
-            dispatch(addItem({ id: product.id, quantity: quantity }))
+            dispatch(
+              addItem({ _id: product._id, quantity: quantity, size: size })
+            )
           }
         >
           Add to cart
@@ -49,7 +70,7 @@ const SubModuleDetailShopping = ({ product }) => {
         <a
           className="ps-product__favorite"
           href="#"
-          onClick={(e) => dispatch(addItemToWishlist(product.id))}
+          onClick={(e) => dispatch(addItemToWishlist(product._id))}
         >
           <i className="fa fa-heart-o"></i>
         </a>

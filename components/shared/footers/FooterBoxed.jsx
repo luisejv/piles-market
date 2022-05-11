@@ -1,6 +1,7 @@
 import React from "react";
 import ListSocial from "~/components/elements/lists/ListSocial";
 import Logo from "~/components/elements/basic/Logo";
+import Link from "next/link";
 
 const FooterBoxed = () => {
   return (
@@ -34,22 +35,16 @@ const FooterBoxed = () => {
             <div className="ps-footer__right">
               <ul className="ps-footer__nav">
                 <li>
-                  <a href="#">Home</a>
+                  <Link href={"/"}>Home</Link>
                 </li>
                 <li>
-                  <a href="#">Shop</a>
+                  <Link href={"/shop"}>Shop</Link>
                 </li>
                 <li>
-                  <a href="#">Collection</a>
+                  <Link href={"/pages/about-us"}>About Us</Link>
                 </li>
                 <li>
-                  <a href="#">Pages</a>
-                </li>
-                <li>
-                  <a href="#">Blog</a>
-                </li>
-                <li>
-                  <a href="#">Contact</a>
+                  <Link href={"/pages/contact"}>Contact</Link>
                 </li>
               </ul>
               {/* <ListSocial more={true} /> */}

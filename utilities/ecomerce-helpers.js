@@ -35,19 +35,21 @@ export function getWishListFromCookies() {
 export async function getCartItemsHelper(cart) {
   let cartItems;
   if (cart && cart.items.length > 0) {
-    let queries = "";
-    cart.items.forEach((item) => {
-      if (queries === "") {
-        queries = `id_in=${item.id}`;
-      } else {
-        queries = queries + `&id_in=${item.id}`;
-      }
-    });
+    // let queries = "";
+    // cart.items.forEach((item) => {
+    //   if (queries === "") {
+    //     queries = `id_in=${item._id}`;
+    //   } else {
+    //     queries = queries + `&id_in=${item._id}`;
+    //   }
+    // });
+    let queries = { ids: cart.items.map((item) => item._id) };
     const products = await getProductsByIds(queries);
+    console.log(products);
     if (products && products.items.length > 0) {
       cartItems = products.items;
       cart.items.forEach((item, index) => {
-        if (item.id === cartItems[index].id) {
+        if (item._id === cartItems[index]._id) {
           cartItems[index].quantity = item.quantity;
         }
       });
@@ -94,9 +96,11 @@ export function updateWishlistToCookies(payload) {
 export function addItemToCartHelper(product) {
   let cart;
   let cookieCart = getCartItemsFromCookies();
+  console.log("PRODUCT:", product);
+  console.log("COOKIECART:", cookieCart);
   if (cookieCart) {
     cart = cookieCart;
-    const existItem = cart.items.find((item) => item.id === product.id);
+    const existItem = cart.items.find((item) => item._id === product._id);
     if (existItem) {
       existItem.quantity += product.quantity;
     } else {
@@ -136,7 +140,7 @@ export function increaseQtyCartItemHelper(product) {
   let cookieCart = getCartItemsFromCookies();
   if (cookieCart) {
     cart = cookieCart;
-    const selectedItem = cart.items.find((item) => item.id === product.id);
+    const selectedItem = cart.items.find((item) => item._id === product._id);
 
     if (selectedItem) {
       selectedItem.quantity = selectedItem.quantity + 1;
@@ -151,7 +155,7 @@ export function decreaseQtyCartItemHelper(product) {
   let cookieCart = getCartItemsFromCookies();
   if (cookieCart) {
     cart = cookieCart;
-    const selectedItem = cart.items.find((item) => item.id === product.id);
+    const selectedItem = cart.items.find((item) => item._id === product._id);
 
     console.log(selectedItem);
 
@@ -168,7 +172,7 @@ export function removeCartItemHelper(product) {
   let cookieCart = getCartItemsFromCookies();
   if (cookieCart) {
     cart = cookieCart;
-    const index = cart.items.findIndex((item) => item.id === product.id);
+    const index = cart.items.findIndex((item) => item._id === product._id);
     cart.items.splice(index, 1);
     updateCartToCookies(cart);
     return cart;

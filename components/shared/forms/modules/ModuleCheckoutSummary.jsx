@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import Link from "next/link";
 import { notification } from "antd";
 import PilesAPI from "~/utilities/api";
+import KRGlue from "@lyracom/embedded-form-glue";
 
-const ModuleCheckoutSummary = ({ cart, email }) => {
+const ModuleCheckoutSummary = ({ cart, information }) => {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -29,23 +30,61 @@ const ModuleCheckoutSummary = ({ cart, email }) => {
 
   const postBuyOrder = async () => {
     try {
-      if (email && email.length > 0) {
+      if (information.email && information.email.length > 0) {
         const body = {
-          // useId:
-          email: email,
+          information: information,
           items: cartItems.map((item) => {
             return {
-              itemId: item.id,
+              itemId: item._id,
               quantity: item.quantity,
+              /* TODO: mandar size */
             };
           }),
           currency: "PEN",
-          date: new Date(),
-          total: total,
+          // date: new Date(),
+          total: total * 100,
         };
         console.log(body);
-        const response = await PilesAPI.post("/buyOrder", body);
-        console.log(response);
+        let formToken;
+        let buyOrderId;
+        // const response = await PilesAPI.post("/buyOrder", body);
+        PilesAPI.post("/buyOrder", body)
+          .then((response) => {
+            console.log(response);
+            formToken = response.data.response.response.answer.formToken;
+            buyOrderId = response.data.response.buyOrderId;
+            return KRGlue.loadLibrary(
+              "https://static.micuentaweb.pe",
+              // "37343142:testpublickey_7WH5AbWhVqvTUh9Bsrau92Apd1shhuoGscz5eORm1LzJl"
+              "37343142:publickey_ypgPYWDnmO5cniiLwjKiAEPMIIOSfAhIrqTWHkzQ7QtUD"
+            );
+          })
+          .then(({ KR }) =>
+            KR.setFormConfig({ formToken, "kr-language": "es-PE" })
+          )
+          .then(({ KR }) =>
+            KR.onSubmit((paymentData) => {
+              console.log("PAYMENTDATA:", paymentData);
+              PilesAPI.post("/buyOrder/status", {
+                orderDetails: {
+                  orderId: buyOrderId,
+                },
+                status: "PAID",
+              }).then((response) => {
+                console.log("RESPONSE BACKEND", response);
+                // if(response.status ===)
+              });
+            }).catch((error) =>
+              console.log("ERROR BACKEND", JSON.stringify(error))
+            )
+          )
+          .then(({ KR }) =>
+            KR.addForm("#myPaymentForm")
+          ) /* add a payment form  to myPaymentForm div*/
+          .then(({ KR, result }) =>
+            KR.showForm(result.formId)
+          ) /* show the payment form */
+          .catch((error) => console.log("ERROR", error));
       } else {
         notification["warning"]({
           message: "Warning",
@@ -61,7 +100,7 @@ const ModuleCheckoutSummary = ({ cart, email }) => {
   let cartItemsViews;
   if (cartItems) {
     cartItemsViews = cartItems.map((item) => (
-      <Link href="/" key={item.id}>
+      <Link href="/" key={item._id}>
         <a>
           <strong>
             {item.title}
@@ -138,6 +177,9 @@ const ModuleCheckoutSummary = ({ cart, email }) => {
         {/*<button className="ps-btn ps-btn--fullwidth ps-btn--black">
                     Process to checkout
                 </button>*/}
+      </div>
+      <div className="row justify-content-center pt-5">
+        <div id="myPaymentForm"></div>
       </div>
     </div>
   );

@@ -2,20 +2,79 @@ import React, { useState } from "react";
 import ModuleCheckoutSummary from "~/components/shared/forms/modules/ModuleCheckoutSummary";
 
 const FormCheckout = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [company, setCompany] = useState("");
-  const [country, setCountry] = useState(1);
-  const [street, setStreet] = useState("");
-  const [zip, setZip] = useState("");
-  const [city, setCity] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [notes, setNotes] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastname, setLastname] = useState("");
+  // const [company, setCompany] = useState("");
+  // const [country, setCountry] = useState("Peru");
+  // const [street, setStreet] = useState("");
+  // const [zip, setZip] = useState("");
+  // const [city, setCity] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [notes, setNotes] = useState("");
   const [createAccount, setCreateAccount] = useState(false);
+
+  const [information, setInformation] = useState({
+    firstName: "",
+    lastName: "",
+    company: "",
+    country: "Peru",
+    street: "",
+    zip: "",
+    city: "",
+    email: "",
+    phone: "",
+    notes: "",
+  });
+
+  const changeInformation = (newValue, field) => {
+    switch (field) {
+      case "firstName": {
+        setInformation((prev) => ({ ...prev, firstName: newValue }));
+        break;
+      }
+      case "lastName": {
+        setInformation((prev) => ({ ...prev, lastName: newValue }));
+        break;
+      }
+      case "company": {
+        setInformation((prev) => ({ ...prev, company: newValue }));
+        break;
+      }
+      case "country": {
+        setInformation((prev) => ({ ...prev, country: newValue }));
+        break;
+      }
+      case "street": {
+        setInformation((prev) => ({ ...prev, street: newValue }));
+        break;
+      }
+      case "zip": {
+        setInformation((prev) => ({ ...prev, zip: newValue }));
+        break;
+      }
+      case "city": {
+        setInformation((prev) => ({ ...prev, city: newValue }));
+        break;
+      }
+      case "email": {
+        setInformation((prev) => ({ ...prev, email: newValue }));
+        break;
+      }
+      case "phone": {
+        setInformation((prev) => ({ ...prev, phone: newValue }));
+        break;
+      }
+      case "notes": {
+        setInformation((prev) => ({ ...prev, notes: newValue }));
+        break;
+      }
+    }
+  };
 
   return (
     <form className="ps-form--checkout">
+      {/* <pre>{JSON.stringify(information, null, 2)}</pre> */}
       <div className="row">
         <div className="col-md-6">
           <div className="ps-form__billings">
@@ -30,8 +89,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder=""
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.currentTarget.value)}
+                    value={information.firstName}
+                    // onChange={(e) => setFirstName(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "firstName")
+                    }
                   />
                 </div>
               </div>
@@ -44,8 +106,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder=""
-                    value={lastname}
-                    onChange={(e) => setLastname(e.currentTarget.value)}
+                    value={information.lastName}
+                    // onChange={(e) => setLastname(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "lastName")
+                    }
                   />
                 </div>
               </div>
@@ -56,8 +121,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder=""
-                    value={company}
-                    onChange={(e) => setCompany(e.currentTarget.value)}
+                    value={information.company}
+                    // onChange={(e) => setCompany(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "company")
+                    }
                   />
                 </div>
               </div>
@@ -68,12 +136,16 @@ const FormCheckout = () => {
                   </label>
                   <select
                     className="ps-select form-control"
-                    value={country}
-                    onChange={(e) => setCountry(e.currentTarget.value)}
+                    value={information.country}
+                    // onChange={(e) => setCountry(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "country")
+                    }
                   >
-                    <option value="1">USA</option>
-                    <option value="2">England</option>
-                    <option value="3">Japan</option>
+                    <option value="USA">USA</option>
+                    <option value="Holanda">Holland</option>
+                    <option value="Italia">Italy</option>
+                    <option value="Peru">Perú</option>
                   </select>
                 </div>
               </div>
@@ -86,8 +158,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder="House number and street name"
-                    value={street}
-                    onChange={(e) => setStreet(e.currentTarget.value)}
+                    value={information.street}
+                    // onChange={(e) => setStreet(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "street")
+                    }
                   />
                 </div>
               </div>
@@ -98,8 +173,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder="Apartment, suite, unit etc. (optional)"
-                    value={zip}
-                    onChange={(e) => setZip(e.currentTarget.value)}
+                    value={information.zip}
+                    // onChange={(e) => setZip(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "zip")
+                    }
                   />
                 </div>
               </div>
@@ -112,8 +190,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder=""
-                    value={city}
-                    onChange={(e) => setCity(e.currentTarget.value)}
+                    value={information.city}
+                    // onChange={(e) => setCity(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "city")
+                    }
                   />
                 </div>
               </div>
@@ -126,8 +207,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder=""
-                    value={email}
-                    onChange={(e) => setEmail(e.currentTarget.value)}
+                    value={information.email}
+                    // onChange={(e) => setEmail(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "email")
+                    }
                   />
                 </div>
               </div>
@@ -140,8 +224,11 @@ const FormCheckout = () => {
                     className="form-control"
                     type="text"
                     placeholder=""
-                    value={phone}
-                    onChange={(e) => setPhone(e.currentTarget.value)}
+                    value={information.phone}
+                    // onChange={(e) => setPhone(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "phone")
+                    }
                   />
                 </div>
               </div>
@@ -177,12 +264,17 @@ const FormCheckout = () => {
               </div> */}
               <div className="col-sm-12">
                 <div className="form-group">
-                  <label>Order notes (optional)</label>
+                  <label>
+                    Order notes {/* (Elegir talla si es un polo: M/L) */}
+                  </label>
                   <textarea
                     className="form-control"
                     rows="6"
-                    value={notes}
-                    onChange={(e) => setNotes(e.currentTarget.value)}
+                    value={information.notes}
+                    // onChange={(e) => setNotes(e.currentTarget.value)}
+                    onChange={(e) =>
+                      changeInformation(e.currentTarget.value, "notes")
+                    }
                   ></textarea>
                 </div>
               </div>
@@ -192,7 +284,7 @@ const FormCheckout = () => {
         <div className="col-md-6">
           <div className="ps-form__orders">
             <h3>Your order</h3>
-            <ModuleCheckoutSummary email={email} />
+            <ModuleCheckoutSummary information={information} />
           </div>
         </div>
       </div>

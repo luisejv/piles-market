@@ -29,7 +29,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
   if (cartItems) {
     if (cartItems.length > 0) {
       const items = cartItems.map((item) => (
-        <tr key={item.id}>
+        <tr key={item._id}>
           <td>
             <ProductOnCart product={item} />
           </td>
@@ -40,11 +40,11 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
             <div className="form-group--number">
               <button
                 className="up"
-                onClick={() => dispatch(increaseItemQty({ id: item.id }))}
+                onClick={() => dispatch(increaseItemQty({ _id: item._id }))}
               ></button>
               <button
                 className="down"
-                onClick={() => dispatch(decreaseItemQty({ id: item.id }))}
+                onClick={() => dispatch(decreaseItemQty({ _id: item._id }))}
               ></button>
               <input
                 className="form-control"
@@ -64,7 +64,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
             <a
               className="ps-icon"
               href="#"
-              onClick={(e) => dispatch(removeItem({ id: item.id }))}
+              onClick={(e) => dispatch(removeItem({ _id: item._id }))}
             >
               <i className="icon-cross"></i>
             </a>

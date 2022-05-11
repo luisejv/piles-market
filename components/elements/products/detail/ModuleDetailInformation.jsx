@@ -22,9 +22,7 @@ const ModuleDetailInformation = ({ product }) => {
         <p>
           <strong>ENVIO NACIONAL GRATUITO</strong>
         </p>
-        <p>
-          <strong>SIZE: {product.size.join("-")}</strong>
-        </p>
+        <p>{/* <strong>SIZE: {product.size.join("-")}</strong> */}</p>
       </div>
       <SubModuleDetailShopping product={product} />
       {/* <SubModuleDetailSpecification /> */}
