@@ -55,6 +55,7 @@ const SubModuleDetailShopping = ({ product }) => {
             className="form-control"
             type="text"
             placeholder={quantity}
+            value={quantity}
             onChange={(e) => setQuantity(+e.currentTarget.value)}
           />
         </div>

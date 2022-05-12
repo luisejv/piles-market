@@ -47,11 +47,14 @@ export async function getCartItemsHelper(cart) {
     const products = await getProductsByIds(queries);
     console.log(products);
     if (products && products.items.length > 0) {
+      console.log("hola");
       cartItems = products.items;
-      cart.items.forEach((item, index) => {
-        if (item._id === cartItems[index]._id) {
-          cartItems[index].quantity = item.quantity;
-        }
+      cart.items.forEach((item) => {
+        cartItems.forEach((cItem) => {
+          if (item._id === cItem._id) {
+            cItem.quantity = item.quantity;
+          }
+        });
       });
     }
     return {
