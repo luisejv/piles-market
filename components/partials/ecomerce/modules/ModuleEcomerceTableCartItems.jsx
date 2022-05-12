@@ -27,6 +27,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
   // View
   let cartItemsViews;
   if (cartItems) {
+    console.log("CARTITEMS: ", cartItems);
     if (cartItems.length > 0) {
       const items = cartItems.map((item) => (
         <tr key={item._id}>
@@ -52,12 +53,15 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
                 value={item.quantity}
                 placeholder={item.quantity}
                 onChange={(e) => {}}
+                disabled
               />
             </div>
           </td>
           <td width={150}>
             <p>
-              <strong>S/.{(item.price * item.quantity).toFixed(2)}</strong>
+              <strong>
+                S/.{Number(item.price * item.quantity).toFixed(2)}
+              </strong>
             </p>
           </td>
           <td>
