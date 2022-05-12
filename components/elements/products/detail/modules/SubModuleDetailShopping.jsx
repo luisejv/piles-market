@@ -15,7 +15,9 @@ const SubModuleDetailShopping = ({ product }) => {
           className="ps-btn ps-btn--black ps-btn--fullwidth"
           href="#"
           onClick={(e) =>
-            dispatch(addItem({ id: product._id, quantity: quantity }))
+            dispatch(
+              addItem({ _id: product._id, quantity: quantity, size: size })
+            )
           }
         >
           Buy Now

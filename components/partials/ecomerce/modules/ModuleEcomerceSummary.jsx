@@ -9,6 +9,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
 
   async function getProductByCardItems(cart) {
     const shoppingCart = await getCartItemsHelper(cart);
+    console.log(shoppingCart);
     if (shoppingCart) {
       setCartItems(shoppingCart.items);
     }
