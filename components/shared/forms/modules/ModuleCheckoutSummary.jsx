@@ -8,6 +8,7 @@ import KRGlue from "@lyracom/embedded-form-glue";
 
 const ModuleCheckoutSummary = ({ cart, information }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
 
   async function getProductByCardItems(cart) {
@@ -48,13 +49,14 @@ const ModuleCheckoutSummary = ({ cart, information }) => {
         let formToken;
         let buyOrderId;
         // const response = await PilesAPI.post("/buyOrder", body);
+        setLoading(true);
         PilesAPI.post("/buyOrder", body)
           .then((response) => {
             console.log(response);
             formToken = response.data.response.response.answer.formToken;
             buyOrderId = response.data.response.buyOrderId;
             return KRGlue.loadLibrary(
-              "https://static.micuentaweb.pe",
+              "https://api.micuentaweb.pe",
               // "37343142:testpublickey_7WH5AbWhVqvTUh9Bsrau92Apd1shhuoGscz5eORm1LzJl"
               "37343142:publickey_ypgPYWDnmO5cniiLwjKiAEPMIIOSfAhIrqTWHkzQ7QtUD"
             );
@@ -62,7 +64,8 @@ const ModuleCheckoutSummary = ({ cart, information }) => {
           .then(({ KR }) =>
             KR.setFormConfig({ formToken, "kr-language": "es-PE" })
           )
-          .then(({ KR }) =>
+          .then(({ KR }) => {
+            setLoading(false);
             KR.onSubmit((paymentData) => {
               console.log("PAYMENTDATA:", paymentData);
               PilesAPI.post("/buyOrder/status", {
@@ -76,8 +79,8 @@ const ModuleCheckoutSummary = ({ cart, information }) => {
               });
             }).catch((error) =>
               console.log("ERROR BACKEND", JSON.stringify(error))
-            )
-          )
+            );
+          })
           .then(({ KR }) =>
             KR.addForm("#myPaymentForm")
           ) /* add a payment form  to myPaymentForm div*/
@@ -171,6 +174,7 @@ const ModuleCheckoutSummary = ({ cart, information }) => {
           type="button"
           className="ps-btn ps-btn--fullwidth ps-btn--black"
           onClick={postBuyOrder}
+          disabled={loading}
         >
           Process to checkout
         </button>
