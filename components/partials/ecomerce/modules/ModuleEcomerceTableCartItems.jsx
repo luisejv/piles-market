@@ -59,9 +59,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
           </td>
           <td width={150}>
             <p>
-              <strong>
-                S/.{Number(item.price * item.quantity).toFixed(2)}
-              </strong>
+              <strong>S/.{Number(item.price * item.quantity)}</strong>
             </p>
           </td>
           <td>
@@ -89,7 +87,7 @@ const ModuleEcomerceTableCartItems = ({ cart }) => {
     }
   }
   return (
-    <table className="table ps-table ps-table--shopping-cart ps-table--resonsive">
+    <table className="table ps-table ps-table--shopping-cart table-responsive">
       <thead>
         <tr>
           <th>Product</th>

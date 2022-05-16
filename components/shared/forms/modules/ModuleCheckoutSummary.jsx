@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { getCartItemsHelper } from "~/utilities/ecomerce-helpers";
 import { connect } from "react-redux";
 import Link from "next/link";
-import { notification } from "antd";
+import { notification, Spin } from "antd";
 import PilesAPI from "~/utilities/api";
 import KRGlue from "@lyracom/embedded-form-glue";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const ModuleCheckoutSummary = ({ cart, information }) => {
   const [cartItems, setCartItems] = useState([]);
@@ -66,7 +67,7 @@ const ModuleCheckoutSummary = ({ cart, information }) => {
           )
           .then(({ KR }) => {
             setLoading(false);
-            KR.onSubmit((paymentData) => {
+            return KR.onSubmit((paymentData) => {
               console.log("PAYMENTDATA:", paymentData);
               PilesAPI.post("/buyOrder/status", {
                 orderDetails: {
@@ -176,6 +177,14 @@ const ModuleCheckoutSummary = ({ cart, information }) => {
           onClick={postBuyOrder}
           disabled={loading}
         >
+          {loading && (
+            <Spin
+              indicator={
+                <LoadingOutlined style={{ fontSize: 24, color: "#fff" }} spin />
+              }
+              className="mr-3"
+            />
+          )}
           Process to checkout
         </button>
         {/*<button className="ps-btn ps-btn--fullwidth ps-btn--black">
