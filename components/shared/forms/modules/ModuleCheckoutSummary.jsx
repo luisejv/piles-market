@@ -6,11 +6,14 @@ import { notification, Spin } from "antd";
 import PilesAPI from "~/utilities/api";
 import KRGlue from "@lyracom/embedded-form-glue";
 import { LoadingOutlined } from "@ant-design/icons";
+import { useRouter } from "next/router";
 
 const ModuleCheckoutSummary = ({ cart, information }) => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
+
+  const router = useRouter();
 
   async function getProductByCardItems(cart) {
     const shoppingCart = await getCartItemsHelper(cart);
@@ -76,6 +79,15 @@ const ModuleCheckoutSummary = ({ cart, information }) => {
                 status: "PAID",
               }).then((response) => {
                 console.log("RESPONSE BACKEND", response);
+                notification["success"]({
+                  message: "Success",
+                  description:
+                    "Thank you! Your order has been generated and will be shipped in the next few days.",
+                  duration: 1.5,
+                });
+                setTimeout(() => {
+                  router.push("/");
+                }, 1500);
                 // if(response.status ===)
               });
             }).catch((error) =>

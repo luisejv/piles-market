@@ -134,6 +134,10 @@
 }
 
 .ps-table--shopping-cart {
+  @media screen and (min-width: 768px) {
+    display: table;
+  }
+
   .form-group--number {
     max-width: 120px;
   }
@@ -174,13 +178,13 @@
         &:first-child {
           min-width: 350px;
           padding-left: 0;
-          @media (max-width: 768px) {
+          @media screen and (max-width: 768px) {
             min-width: 120px;
           }
         }
 
         &:nth-child(3) {
-          @media (max-width: 768px) {
+          @media screen and (max-width: 768px) {
             min-width: 120px;
           }
         }

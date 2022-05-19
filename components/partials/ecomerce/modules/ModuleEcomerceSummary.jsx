@@ -43,7 +43,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
     <div className="ps-block--checkout-total">
       <div className="ps-block__top">
         <h4>
-          Subtotal <span>${total}</span>
+          Subtotal <span>S/. {total}</span>
         </h4>
         <div className="ps-block__shipping">
           <h5>Shipping</h5>
@@ -94,7 +94,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
         </div> */}
         <div className="ps-block__total">
           <h3>
-            Total<span>${total}</span>
+            Total<span>S/. {total}</span>
           </h3>
         </div>
       </div>

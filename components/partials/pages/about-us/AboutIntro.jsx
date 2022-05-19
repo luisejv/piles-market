@@ -41,20 +41,20 @@ const AboutIntro = () => {
           </p>
         </div>
       </div>
-      <div className="ps-section__right col-12 col-md-7">
+      <div className="ps-section__right col-12 col-md-7 d-flex flex-column justify-content-center align-items-center">
         <img
           src="/static/img/pages/image00004.jpeg"
           width={"475"}
           height={"715"}
           alt=""
         />
-        <img
+        {/* <img
           src="/static/img/pages/image00003.jpeg"
           width={"475"}
           className="pl-3"
           // height={"715"}
           alt=""
-        />
+        /> */}
       </div>
     </div>
   );
